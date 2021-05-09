@@ -1,0 +1,380 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.overview {
+    background-color: rgb(27, 27, 27);
+    padding: 2rem;
+    position: absolute;
+    max-height: 100%;
+    overflow: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+}
+
+.overview h3 {
+    margin-top: 0;
+}
+
+.overview h2 {
+    color: #be2e3a;
+    margin-left: -25px;
+    font-size: 50px;
+    
+}
+.movie:hover .overview {
+    transform: translateY(0);
+    
+}
+.movie {
+  background-color: #3d3e42;
+  border-radius: 30px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  margin: 1rem;
+
+  width: 250px;
+}
+
+.movie img {
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+}
+
+.movie-info {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+  margin: 0;
+}
+
+.movie-info span {
+ 
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  background-color: #2c2e3a;
+  color: #be2e3a;
+}
+
+.yazi{
+  color: white;
+}
+input[type=email], input[type=password] {
+  width: 45%;
+  padding: 12px 20px;
+  margin: 15px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button[type=submit] {
+  
+    color: white;
+    background-color: #be2e3a ;
+    padding: 10px ;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 45%;
+    margin-left: 80px;
+  
+}
+button[type=submit]:hover {
+  
+  background-color: #be2e3a ;
+
+
+}
+
+
+#forgot  .forgot{
+  color: white;
+  font-weight: 600;
+}
+.signup{
+  color:#be2e3a ;
+  font-size: 17px;
+  transition: font-size 0.3s;
+
+}
+.signup:hover{
+  color:#be2e3a ;
+  font-weight: 900;
+  font-size: 20px;
+  
+}
+.login{
+  color: white;
+  font-weight: 600;
+ 
+ }
+ /* .logout button[variant=link]{
+ 
+  background-color: #be2e3a ;
+  margin: 8px 0;
+  
+  cursor: pointer;
+  width: 20%;
+  margin-left: 80px;
+ } */
+
+ 
+
+
+.list-inline-item #btn-outline-info {
+  color: #5a606b;
+  border: 1px solid #5a606b;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  font-weight: 500;
+} 
+
+.list-inline-item #btn-outline-info:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.navbar {
+  background-color: #060b26;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.nav-menu {
+  background-color: #060b26;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  background-color: #1a83ff;
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  background-color: #060b26;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+span {
+  margin-left: 16px;
+}
+
+
+
+.card .btn {
+  padding: 10px 15px;
+  background-color:rgb(27, 27, 27);
+color: white;
+/* border-radius: 0; */
+border:0 black;
+   font-weight: 700;
+  transition: all 0.3s ease;
+  
+}
+
+.card .btn:hover {
+  background-color: #be2e3a;
+  color: white;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+.movie-card {
+  width: 10%;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  
+  display: inline-block;
+  
+}
+
+.movie-card img {
+  width: 100%;
+  display: block;
+  margin:10px;
+}
+
+.movie-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 92%;
+  height: 85%;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  
+}
+
+.movie-card:hover .overlay {
+  border: 3px solid white;
+}
+
+.movie-card .inner-card-controls .ctrl-btn{
+  /* display: inline; */
+  background-color: black;
+  position: relative;
+  bottom: 60px;
+  left: 40%;
+  transform: translateX(-50%);
+  border-radius: 6px;
+  padding: 3px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.movie-card .inner-card-controls  .ctrl-btn i {
+  color: white;
+
+}
+.movie-card .inner-card-controls  .ctrl-btn:hover  {
+background-color: #be2e3a;
+}
+.movie-card:hover .inner-card-controls  .ctrl-btn{
+  opacity: 1;
+}
+.controls button {
+  margin-right: 10px;
+}
+
+
+/* Movie Page */
+.movie-page {
+  padding: 30px 0;
+}
+
+.movie-page .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.header  .count-pill {
+  display: block;
+  background-color: #be2e3a;
+  padding: 5px 15px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 999px;
+  color: var(--primary);
+  /* margin-left:700px; */
+  
+}
+
+.movie-page .heading {
+  color: var(--primary);
+  margin: 0;
+}
+.movie-page .no-movies {
+  color: #c4c4c4;
+  font-size: 3rem;
+  text-align: center;
+}
+.controls{
+  background-color:rgb(27, 27, 27);
+
+}
+.controls .add {
+  padding: 10px 15px;
+  background-color:rgb(27, 27, 27);
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  line-height: 1.1;
+}
+
+.controls .add:hover  {
+  background-color: #be2e3a;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.controls .add:disabled {
+  color: #be2e3a;
+  font-weight: bolder;
+  pointer-events: none;
+  opacity: 0.5;
+}
