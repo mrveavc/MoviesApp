@@ -4,8 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Context/AuthContext";
 import { Link } from "react-router-dom"
 
-// import Login from "../../Login/Login";
-// import Dashboard from "../../Dashboard";
+
 
 export default function  NavLogout () {
   const { handleLogout } = useContext(AuthContext);
