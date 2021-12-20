@@ -7,7 +7,6 @@ import NavLogo from "./NavLogo";
 import NavMenu from "./NavMenu";
 import NavSearch from "./NavSearch";
 import RightNav from "./RightNav";
-// import NavLogout from "./NavLogout";
 
 
 const Nav = () => {
@@ -25,7 +24,6 @@ const Nav = () => {
        
         <i
           onClick={() => setHiddenMenu(!hiddenMenu)}
-          // id="burgerMenu"
           className={hiddenMenu ? "fas fa-bars" : "fas fa-times"}
         ></i>
       </Container>
