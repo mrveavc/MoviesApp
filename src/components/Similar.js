@@ -31,12 +31,7 @@ export default function Similar({ match }) {
           </Link>
         <div className="mt-3">
           <p style={{color:"white", fontWeight: "bolder" }}>{item.title}</p>
-          {/* <p style={{color:"white"}}>Rated: {item.rating}</p> */}
-          {/* <ReactStars
-            count={item.rating}
-            size={20}
-            color1={"#f4c10f"}
-          ></ReactStars> */}
+         
         </div>
       </div>
     );
