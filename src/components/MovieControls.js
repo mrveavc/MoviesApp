@@ -9,9 +9,7 @@ export const MovieControls = ({ type, movie }) => {
   const {
     removeMovieFromWatchlist,
     addMovieToWatched,
-    // moveToWatchlist,
-    // removeFromWatched,
-  /*   deleteFav */
+   
   currentUser
   } = useContext(AuthContext);
   const [b, setFav] = useState([]);
@@ -22,7 +20,7 @@ export const MovieControls = ({ type, movie }) => {
     getFav();
   });
   function getFav() {
-    // setLoading(true);
+  
     ref.onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((doc) => {
@@ -30,49 +28,10 @@ export const MovieControls = ({ type, movie }) => {
       });
       setFav(items);
       
-      // setLoading(false);
+      
     });
   } 
-  /* function deleteFav(a) { 
-
-     
-      b.map((b) => (
-                 
-           
-               
-        b.f.slice().map((movie) => (
-        a.fav===movie.fav ? (
-              console.log(a.fav,movie.fav),
-              console.log(movie),
-              firestore.collection('users').doc(currentUser.uid).update({
-                f:firebase.firestore.FieldValue.arrayUnion(movie)
-              })
-              firestore.collection('users').where('f','array-contains',movie.fav).delete()
-              firebase.firestore()
-.collection('users')
-.doc(currentUser.uid)
-.delete(
-  { f: [{fav:a.fav}] },
-  { f: [{ who: "1" }] }, 
-  
-)
-              firestore.collection('users').doc(currentUser.uid).update({
-                f: firebase.firestore.FieldValue.arrayUnion().delete(movie.fav)
-               
-                })
-            ):(
-            <></>
-            )
-        
-      
-        
-        ))
-      
-    
-    ))
-  
-    
-     } */
+ 
      function del(movie){
       
            firebase.firestore().collection('users').doc(currentUser.uid).update({
@@ -84,21 +43,6 @@ export const MovieControls = ({ type, movie }) => {
   }
   return (
     <div className="inner-card-controls">
-     {/*  {type === "watchlist" && (
-        <>
-          <button className="ctrl-btn" onClick={() => addMovieToWatched(movie)}>
-            <i className="fa-fw far fa-eye"></i>
-          </button>
-
-          <button
-            className="ctrl-btn"
-            onClick={() => removeMovieFromWatchlist(movie.id)}
-          >
-            {console.log(movie.id)}
-            <i className="fa-fw fa fa-times"></i>
-          </button>
-        </>
-      )} */}
 
       {type === "watched" && (
         <>
