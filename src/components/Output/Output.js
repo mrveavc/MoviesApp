@@ -6,15 +6,11 @@ import Container from "../GlobalComponents/Container";
 import Movies from "../Movies/Movies";
 
 
-// import Login from "../Login/Login";
 import MoviesPagination from "../Movies/MoviesPagination";
 import All from "../All";
-// import All1 from "../All1";
-// import Category from "../Category";
-// import All1 from "../../components/All1";
+
 import Category from "../Category";
 import Watched from "../Watched";
-// import  Watchlist  from "../Watchlist";
 
 
 const Output = () => {
