@@ -12,10 +12,7 @@ const RightNav = ({  component: Component, ...rest }) => {
     return (
         <div 
          className="wrapper" css={styles} 
-        //   {...rest}
-        //   render={props => {
-        //     return currentUser ? <Component {...props} /> : <Redirect to="/login" />
-        //   }}
+       
         > 
         {currentUser ? (
            <Dashboard ></Dashboard>
