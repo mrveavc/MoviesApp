@@ -1,23 +1,4 @@
-// import { MovieState } from "./Context/MovieContext";
-// import Navi from "./components/Navi/Navi";
-// import "./App.css";
-// import React from "react";
 
-
-
-// const App = () => {
-
-//   return (
-      
-//     <MovieState>
-      
-     
-//       <Navi />
-//     </MovieState>
-//   );
-// };
-
-// export default App;
 
 import React from "react"
 
