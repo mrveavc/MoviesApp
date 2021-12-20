@@ -3,15 +3,13 @@ import React, {
   createContext,
   useState,
   useEffect,
-  // useReducer,
 } from "react";
 import { auth, firestore } from "../firebase";
 
 import { useHistory ,Link} from "react-router-dom";
-// import axios from "axios";
-// import AppReducer from "./AppReducer";
+
 import firebase from "firebase/app";
-/* import { gecici } from "../components/gecici"; */
+
 
 export const AuthContext = createContext();
 
@@ -19,22 +17,9 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-// const initialState = {
-//   watchlist: localStorage.getItem("watchlist")
-//     ? JSON.parse(localStorage.getItem("watchlist"))
-//     : [],
-//   watched: localStorage.getItem("watched")
-//     ? JSON.parse(localStorage.getItem("watched"))
-//     : [],
-// };
-
-// // create context
-// export const GlobalContext = createContext(initialState);
-
-// provider components
 
 export function AuthProvider({ children }) {
-  // const [state, dispatch] = useReducer(AppReducer, initialState);
+ 
 
   const [hiddenMenu, setHiddenMenu] = useState(true);
 
@@ -57,36 +42,14 @@ export function AuthProvider({ children }) {
   const [fav, setFav] = useState([]);
   const ref = firestore.collection("users");
 
-  // function add(newSchool) {
-  //   // let a=0;
-
-  //   ref.doc(currentUser.uid).set({
-  //     id:currentUser.uid,
-  //     fav: newSchool.id,
-  //     name:newSchool.title,
-  //     poster:newSchool.poster,
-
-  //     // Array: [newSchool.id,newSchool.title,newSchool.poster],
-
-  //   })
-  //     //.doc() use if for some reason you want that firestore generates the id
-  //     // .doc(newSchool.id)
-  //     // .set(newSchool)
-  //     // .then(() => {
-  //     //   setFav((prev) => [newSchool, ...prev]);
-  //     // })
-  //     // .catch((err) => {
-  //     //   console.error(err);
-  //     // });
-  // }
+  
 
   const add = async (newSchool) => {
-    // let myArray = [currentUser.uid,newSchool.id,newSchool.title,newSchool.poster];
-    // dispatch({ type: "MOVE_TO_WATCHLIST", payload: newSchool });
+    
 
     try {
       await ref.doc(currentUser.uid).update({
-        // [a]: firebase.firestore.FieldValue.arrayUnion({uid:currentUser.uid,fav:newSchool.id,name:newSchool.title,poster:newSchool.poster})
+     
         f: firebase.firestore.FieldValue.arrayUnion({
           id: currentUser.uid,
           fav: newSchool.id,
@@ -98,42 +61,16 @@ export function AuthProvider({ children }) {
         name: newSchool.title,
         poster: newSchool.poster,
 
-        // a: firebase.firestore.FieldValue.arrayUnion(currentUser.uid,newSchool.id,newSchool.title,newSchool.poster)
+      
       });
     } catch {
       console.error("An error has occured while adding an author");
     }
   };
 
- // function deleteFav(a) { 
-    
+ 
 
-  /*  firestore.collection('users').doc(currentUser.uid).update({
-        f: firebase.firestore.FieldValue.delete()
-       
-       
-        
-    
-}); */
-    
-   /*  firestore.collection('users').doc(currentUser.uid).update({
-        fav: firebase.firestore.FieldValue.delete()
-       
-       
-        
-    
-}); */
- /*   
-    ref
-      .doc()
-      .delete()
-      .then(() => {
-        setFav((prev) => prev.filter((element) => element.fav !== movie.fav));
-      })
-      .catch((err) => {
-        console.error(err);
-      }); */
- // }
+ 
  
 
   const getMovies = async () => {
@@ -173,7 +110,7 @@ export function AuthProvider({ children }) {
   }
 
   const newPage = (direction) => {
-    //NEXT - PREVİOUS
+    
     if (direction === "next") {
       setCurrentPage(currentPage + 1);
       setIsLoading(true);
@@ -193,7 +130,7 @@ export function AuthProvider({ children }) {
   }, [search, currentPage]);
 
   useEffect(() => {
-    //SAYFALAR ARASI GEÇİŞTEKİ EFEKT
+   
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
     }, 300);
@@ -204,14 +141,11 @@ export function AuthProvider({ children }) {
     auth.createUserWithEmailAndPassword(email, password).then((cred) => {
       return firestore.collection("users").doc(cred.user.uid).set({
         fav: null,
-        // id:null,
-        // fav: null,
-        // name:null,
-        // poster:null,
+        
       });
     });
 
-    // return auth.createUserWithEmailAndPassword(email, password);
+ 
   }
 
   function login(email, password) {
@@ -243,35 +177,7 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
-  //   // localStorage.setItem("watched", JSON.stringify(state.watched));
-  // }, [state]);
-
-  // // actions
-  // const addMovieToWatchlist = (movie) => {
-  //   dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie });
-  // };
-
-  // const removeMovieFromWatchlist = (id) => {
-  //   dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: id });
-  // };
-  // // // const ref = firestore.collection("users");
-
-  // // const addMovieToWatched = (movie) => {
-  // //   // ref.doc(movie.id).set(movie).catch((err)=>{
-  // //   //   console.error(err);
-  // //   // })
-  // //   dispatch({ type: "ADD_MOVIE_TO_WATCHED", payload: movie });
-  // // };
-
-  // const moveToWatchlist = (movie) => {
-  //   dispatch({ type: "MOVE_TO_WATCHLIST", payload: movie });
-  // };
-
-  // const removeFromWatched = (id) => {
-  //   dispatch({ type: "REMOVE_FROM_WATCHED", payload: id });
-  // };
+  
 
   const value = {
     currentUser,
@@ -283,8 +189,7 @@ export function AuthProvider({ children }) {
     updatePassword,
     fav,
     add,
-/*     deleteFav,
- */    movies,
+    movies,
     setMovies,
     search,
     setSearch,
@@ -298,36 +203,10 @@ export function AuthProvider({ children }) {
     setShowPagination,
     isLoading,
     setIsLoading,
-
     hiddenMenu,
     setHiddenMenu,
     handleLogout,
     loading,
-    // nowPlaying,
-    // genreList,
-
-    // movieByGenre,
-    // fetchMovieDetail,
-    // fetchMovieVideos,
-    // fetchCasts,
-    // fetchSimilarMovie,
-    // setDetail,
-    // setVideo,
-    // setCasts,
-    // setSimilarMovie,
-    // detail,
-    // setIsOpen,
-    // video,
-    // casts,
-    // similarMovie,
-    // isOpen,
-    // watchlist: state.watchlist,
-    // watched: state.watched,
-    // addMovieToWatchlist,
-    // removeMovieFromWatchlist,
-    // addMovieToWatched,
-    // moveToWatchlist,
-    // removeFromWatched,
   };
 
   return (
