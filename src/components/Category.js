@@ -13,12 +13,7 @@ import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import MovieDetail from "./MovieDetail";
 import { AuthContext } from "../Context/AuthContext";
-// import { firestore } from "../firebase";
-// import Watched from "./Watched";
-// import { firestore} from "../firebase";
 
-// import { useAuth } from "../Context/AuthContext";
-// import ReactStars from "react-rating-stars-component";
 
 export default function Category() {
   const { currentUser ,fav,add/*,deleteFav*/} = useContext(AuthContext);
@@ -29,71 +24,24 @@ export default function Category() {
   const [genres, setGenres] = useState([]);
   const [nowPlaying, setNowPlaying] = useState([]);
 const [visible,setVisible]=useState(1);
-//  const [list,setList]=useState("");
   const apiKey = "9d4fbae6d45a1f406cc115a66a4de03d";
-  // const [fav, setFav] = useState([]);
-    // const [loading, setLoading] = useState(false);
-  // const {
-  //   // addMovieToWatchlist,
-  //   // addMovieToWatched,
-  //   watchlist,
-  //   // watched,
-  // } = useContext(AuthContext);
-
   
-  // function getFav() {
-  //   setLoading(true);
-  //   ref.onSnapshot((querySnapshot) => {
-  //     const items =[];
-  //     querySnapshot.forEach((doc)=>{
-  //       items.push(doc.data());
-  //     })
-  //     setFav(items);
-  //     setLoading(false);
-  //   });
-  // }
   useEffect(() => {
-    // getFav();
-
- 
     fetchAPI();
-    // firestore.collection('users').get().then(snapshot=>{  
-
-    //   const students=[]
-    //   snapshot.forEach(doc=>{
-    //     const data=doc.data()
-    //     students.push(data)
-    //   })
-    //   this.setState({students:students})
-      
-    //   // console.log(snapshot)
-    // }).catch(error=>console.log(error))
+  
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-// if(loading){
-//   return  <h1>Loading</h1>
-// }
+
 
   const moviesUrl = `${url}/discover/movie?api_key=ba580b8ef4ced426252acbd8f339ce54&language=en_US&page=${visible}`;
   const nowPlayingUrl = `${url}/movie/now_playing`;
   const genreUrl = `${url}/genre/movie/list`;
 
 
-  // const newPage = (direction) => {
-  //   //NEXT - PREVİOUS
-  //   if (direction === "next") {
-  //     setCurrentPage(currentPage + 1);
-  //   } else if (direction === "previous" && currentPage !== 1) {
-  //     setCurrentPage(currentPage - 1);
-  //   }
     
-  // };
+ 
   const showMoreItems = async (genre_id) => {
-
-  // setMovieByGenre(await fetchMovieByGenre(genre_id)); 
   setVisible((prevValue)=> prevValue+1)
-  
-  
 }
 
 
@@ -143,9 +91,7 @@ const [visible,setVisible]=useState(1);
   async function handleGenreClick(genre_id) {
      showMoreItems(genre_id)
     setMovieByGenre(await fetchMovieByGenre(genre_id));
-   
-    // clk(genre_id)
-  }
+     }
  
 
   async function fetchMovies() {
@@ -193,7 +139,7 @@ const [visible,setVisible]=useState(1);
      const fetchAPI = async () => {
       setNowPlaying(await fetchMovies());
       setGenres(await fetchGenre());
-      setMovieByGenre(await fetchMovieByGenre(28)); // Actiondan başlatıyor 35 comedy 80 crime
+      setMovieByGenre(await fetchMovieByGenre(28)); 
       
     };
 
@@ -221,16 +167,7 @@ const [visible,setVisible]=useState(1);
 
 
   const movieList = movieByGenre.slice(0, 20).map((item, index) => {
-    // let storedMovie = watchlist.find((o) => o.id === item.id);
-    // let storedMovieWatched = watched.find((o) => o.id === item.id);
-    
-  // const watchlistDisabled = storedMovie
-  // ? true
-  // : false
-  // ? true
-  // : false;
-
-// const watchedDisabled = storedMovieWatched ? true : false;
+   
     return (
       
       <div className="col-md-3 col-sm-6" key={index}>
@@ -244,24 +181,16 @@ const [visible,setVisible]=useState(1);
           {currentUser ? (
         <> <div className="controls">
 
-         {/* <button
-          className="add"
-          disabled={watchlistDisabled}
-          onClick={() => addMovieToWatchlist(item)}
-        >
-
-          Add to Watchlist
-        </button>  */}
+        
 
         <button
           className="add"
-          // disabled={watchlistDisabled}
           onClick={() => add(item) /*addMovieToWatched(item)*/}
         >            
 
           Add to Watched
         </button>
-        {/* <button onClick={() => deleteFav(fav)}>X</button> */}
+       
 
       </div></>
       ) : (
@@ -276,11 +205,7 @@ const [visible,setVisible]=useState(1);
           <p style={{ color: "white", fontWeight: "bolder" }}>
             Rated: {item.rating}
           </p>
-          {/* <ReactStars
-            count={item.rating}
-            size={20}
-            color1={"#f4c10f"}
-          ></ReactStars> */}
+        
         </div>
 
       </div>
@@ -292,18 +217,18 @@ const [visible,setVisible]=useState(1);
       
     return (
       <>
-        {/* <button onClick={openModal}>Open</button> */} 
+      
         
         <Modal 
-        //   id="any-unique-identifier"
+       
           isOpen={isModalOpen}
           transition={ModalTransition.NONE}
           
         > 
        
-        {/* <button  to="/" onClick={closeModal} >Close</button> */}
+      
          <Switch>
-         {/* <Route exact path="/" component={Category}  /> */}
+        
          <Route path="/movie/:id" component={MovieDetail} />
 
          </Switch>
@@ -337,7 +262,7 @@ const [visible,setVisible]=useState(1);
         <h2 style={{color:"white", fontWeight:"600" }}>In Theaters</h2>
         <div className="row mt-2">
            
-          {/*  EN BAŞTAKİ*/}
+         
           <div className="col">
             <RBCarousel
               autoplay={true}
@@ -357,29 +282,10 @@ const [visible,setVisible]=useState(1);
           </div>
         </div>
 
-        {/* <div className="row mt-3">
-          <div className="col">
-            <div className="float-right">
-              <i className="far fa-arrow-alt-circle-right"></i>
-            </div>
-          </div>
-        </div> */}
+       
         <div  className="row mt-3">{movieList}</div>
-        {/* <button onClick={showMoreItems}>add more</button> */}
-        {/* <button
-              style={{
-                cursor: currentPage !== 1 ? "pointer" : "not-allowed",
-                background: currentPage !== 1 ? "#2F4F4F" : "#696969",
-              }}
-              onClick={() => newPage("previous")}
-            >
-              
-              Prev Page
-            </button>
-            <button  style={{
-               
-                background:  "#2F4F4F",
-              }} onClick={() => newPage("next")}>Next Page</button> */}
+    
+     
        
       </div>
       
