@@ -130,16 +130,7 @@ button[type=submit]:hover {
   font-weight: 600;
  
  }
- /* .logout button[variant=link]{
  
-  background-color: #be2e3a ;
-  margin: 8px 0;
-  
-  cursor: pointer;
-  width: 20%;
-  margin-left: 80px;
- } */
-
  
 
 
@@ -235,10 +226,9 @@ span {
 .card .btn {
   padding: 10px 15px;
   background-color:rgb(27, 27, 27);
-color: white;
-/* border-radius: 0; */
-border:0 black;
-   font-weight: 700;
+  color: white;
+  border:0 black;
+  font-weight: 700;
   transition: all 0.3s ease;
   
 }
@@ -289,7 +279,6 @@ border:0 black;
 }
 
 .movie-card .inner-card-controls .ctrl-btn{
-  /* display: inline; */
   background-color: black;
   position: relative;
   bottom: 60px;
