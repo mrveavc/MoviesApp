@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
 
   const [hiddenMenu, setHiddenMenu] = useState(true);
 
-  const [activeLink, setActiveLink] = useState("Filmler"); //İLK FİLMLERİ ACTİVE ETTİM
+  const [activeLink, setActiveLink] = useState("Filmler"); 
 
   const [showPagination, setShowPagination] = useState(true);
 
@@ -33,7 +33,7 @@ export function AuthProvider({ children }) {
 
   const [search, setSearch] = useState("");
 
-  const [currentPage, setCurrentPage] = useState(1); // SAYFA BİRDEN BAŞLAR
+  const [currentPage, setCurrentPage] = useState(1); 
 
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
@@ -121,7 +121,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     if (search.trim() === "") {
-      setShowPagination(true); // NEXT VE PREVIOS u altta gösterir
+      setShowPagination(true); 
     }
 
     getMovies();
